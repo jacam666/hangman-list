@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace hangman_list
 {
@@ -19,6 +20,14 @@ namespace hangman_list
             words[7] = "bodybuilding";
             words[8] = "cameron";
             words[9] = "coding";
+
+            //List<string> wordsList = new List<string>();
+
+            //wordsList.Add("hello");
+            //wordsList.Add("second string");
+            //wordsList.Add("third thing");
+
+            //Console.WriteLine(wordsList[0]);
 
             //activating my random word
             Random rng = new Random();
