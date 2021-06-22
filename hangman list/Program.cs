@@ -15,7 +15,7 @@ namespace hangman_list
             words[3] = "euros";
             words[4] = "bitcoin";
             words[5] = "bycicle";
-            words[6] = "trivia";
+            words[6] = "hello";
             words[7] = "bodybuilding";
             words[8] = "cameron";
             words[9] = "coding";
