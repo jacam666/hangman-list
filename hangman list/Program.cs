@@ -50,32 +50,33 @@ namespace hangman_list
             Console.WriteLine(displayWord);
 
             Console.WriteLine(" Guess a letter");
-            char userLetter = Char.Parse(Console.ReadLine());
+            //char userLetter = Char.Parse(Console.ReadLine());
 
             char[] finalOutput = new char[currentWord.Length];  //whats your intention there?
 
 
-            for (int i = 0; i < currentWord.Length; i++)  //loops for each letter in current word
+            //for (int i = 0; i < currentWord.Length; i++)  //loops for each letter in current word
+            //{
+            //    if (userLetter == currentWord[i])  //currentword = abcde  / userletter is b
+            //    {
+            //        Console.Write(userLetter);
+            //    }
+            //    else
+            //    {
+            //        Console.WriteLine("sorry that guess was incorrect");
+            //    }
+
+         //   }
+
+            while (true)   //loops forever
             {
-                if (userLetter == currentWord[i])  //currentword = abcde  / userletter is b
+                char playerGuess = char.Parse(Console.ReadLine());
+                for (int j = 0; j < currentWord.Length; j++)
                 {
-                    Console.Write(userLetter);
+                    if (playerGuess == currentWord[j])
+                        finalOutput[j] = playerGuess;     //if the guess is correct, set the character for the final output
                 }
-                else
-                {
-                    Console.WriteLine("sorry that guess was incorrect");
-                }
-                
-                while (true)   //loops forever
-                {
-                    char playerGuess = char.Parse(Console.ReadLine());
-                    for (int j = 0; j < currentWord.Length; j++)
-                    {
-                        if (playerGuess == currentWord[j])
-                            finalOutput[j] = playerGuess;     //if the guess is correct, set the character for the final output
-                    }
-                    Console.WriteLine(finalOutput);
-                }
+                Console.WriteLine(finalOutput);
             }
         }
     }
