@@ -9,39 +9,42 @@ namespace hangman_list
         {
             // trying to use lists.
             //chose 10 different words that will be randomly generated hopefully.
-            string[] words = new string[10];
-            words[0] = "hello";
-            words[1] = "football";
-            words[2] = "england";
-            words[3] = "euros";
-            words[4] = "bitcoin";
-            words[5] = "bycicle";
-            words[6] = "hello";
-            words[7] = "bodybuilding";
-            words[8] = "cameron";
-            words[9] = "coding";
+            //string[] words = new string[10];
+            //words[0] = "hello";
+            //words[1] = "football";
+            //words[2] = "england";
+            //words[3] = "euros";
+            //words[4] = "bitcoin";
+            //words[5] = "bycicle";
+            //words[6] = "hello";
+            //words[7] = "bodybuilding";
+            //words[8] = "cameron";
+            //words[9] = "coding";
 
 
             List<string> wordsList = new List<string>();
-
+            
             wordsList.Add("hello");
-            wordsList.Add("second string");
-            wordsList.Add("third thing");
-            wordsList.Add("hello");
-            wordsList.Add("second string");
-            wordsList.Add("third thing");
+            wordsList.Add("football");
+            wordsList.Add("england");
+            wordsList.Add("bitcoin");
+            wordsList.Add("bodybuilding");
+            wordsList.Add("cameron");
 
-
-            Console.WriteLine(wordsList.Count);
+            Console.WriteLine("\t\t\t Welcome to my Hangman game, Good luck!");
 
             //activating my random word
             Random rng = new Random();
 
-            int rndWordIndex = rng.Next(0, words.Length);   //warning! magic number ?!?!
+            int rndWordIndex = rng.Next(0, wordsList.Count);   //warning! magic number ?!?!
 
-            char[] currentWord = words[rndWordIndex].ToCharArray();
+            char[] currentWord = wordsList[rndWordIndex].ToCharArray();
 
             char[] displayWord = new char[currentWord.Length];
+            int lives = currentWord.Length + 2;
+
+            Console.WriteLine("guess for a {0} letter word", currentWord.Length);
+            Console.WriteLine("you have {0} lives", lives);
 
             for (int i = 0; i < currentWord.Length; i++)
             { //hides my word
@@ -50,34 +53,77 @@ namespace hangman_list
             Console.WriteLine(displayWord);
 
             Console.WriteLine(" Guess a letter");
-            //char userLetter = Char.Parse(Console.ReadLine());
-
-            char[] finalOutput = new char[currentWord.Length];  //whats your intention there?
+            char letterGuessed = Char.Parse(Console.ReadLine());
 
 
-            //for (int i = 0; i < currentWord.Length; i++)  //loops for each letter in current word
+
+
+
+
+
+
+
+
+
+
+
+            //for (int i = 0; i < currentWord.Length + 2; i--)
             //{
-            //    if (userLetter == currentWord[i])  //currentword = abcde  / userletter is b
+
+
+            //    for (int j = 0; j < currentWord.Length; j++)
             //    {
-            //        Console.Write(userLetter);
+            //        if (userLetter == currentWord[j])
+            //        {
+            //            Console.WriteLine(displayWord);
+            //        }
+            //        else
+            //        {
+            //            Console.WriteLine("sorry that guess was incorrect");
+            //        }
+            //    }
+            //}
+            //while (true)   //loops forever
+            //{
+
+            //    for (int k = 0; k < currentWord.Length; k++)
+            //    {
+            //        if (userLetter == currentWord[k])
+            //            displayWord[k] = userLetter;     //if the guess is correct, set the character for the final output
+            //        Console.WriteLine("That guess is correct!");
+            //    }
+
+            //    Console.WriteLine(displayWord);
+            //}
+
+
+
+            //char playerGuess = char.Parse(Console.ReadLine());
+            //for (int k = 0; k < currentWord.Length; k++)  //loops for each letter in current word
+            //{
+            //    if (playerGuess == currentWord[k])  //currentword = abcde  / userletter is b
+            //    {
+            //        Console.Write(playerGuess);
             //    }
             //    else
             //    {
             //        Console.WriteLine("sorry that guess was incorrect");
             //    }
 
-         //   }
+            //}
 
-            while (true)   //loops forever
-            {
-                char playerGuess = char.Parse(Console.ReadLine());
-                for (int j = 0; j < currentWord.Length; j++)
-                {
-                    if (playerGuess == currentWord[j])
-                        finalOutput[j] = playerGuess;     //if the guess is correct, set the character for the final output
-                }
-                Console.WriteLine(finalOutput);
-            }
+            //while (true)   //loops forever
+            //{
+
+            //    for (int k = 0; k < currentWord.Length; k++)
+            //    {
+            //        if (playerGuess == currentWord[k])
+            //            displayWord[k] = playerGuess;     //if the guess is correct, set the character for the final output
+            //        Console.WriteLine("That guess is correct!");
+            //    }
+
+            //    Console.WriteLine(displayWord);
+            //}
         }
     }
 }
