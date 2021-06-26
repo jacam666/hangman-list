@@ -1,5 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
+using System.Linq;
+
+
 
 namespace hangman_list
 {
@@ -23,7 +27,7 @@ namespace hangman_list
 
 
             List<string> wordsList = new List<string>();
-            
+
             wordsList.Add("hello");
             wordsList.Add("football");
             wordsList.Add("england");
@@ -45,56 +49,67 @@ namespace hangman_list
 
             Console.WriteLine("guess for a {0} letter word", currentWord.Length);
             Console.WriteLine("you have {0} lives", lives);
+            bool correctLetter = true;
 
+            // moved this code from the while loop so it doesnt repeat itself
             for (int i = 0; i < currentWord.Length; i++)
             { //hides my word
                 displayWord[i] = '*';
             }
-            Console.WriteLine(displayWord);
+            while (lives > 0) // while lives are more than 0, the code in these brackets will execute
+            {
 
-            Console.WriteLine(" Guess a letter");
-            char letterGuessed = Char.Parse(Console.ReadLine());
+                Console.WriteLine(" Guess a letter");
+                Console.WriteLine(displayWord); // displays my hidden word.
+                char letterGuessed = char.Parse(Console.ReadLine());// checks to see if letter is in the array.
+                for (int i = 0; i < currentWord.Length; i++)
+
+                    if (letterGuessed == currentWord[i])
+                        if (correctLetter)
+                        {
+                            //Console.WriteLine(displayWord[i]);
+                            displayWord[i] = letterGuessed;     //if the guess is correct, set the character for the final output
+                            Console.WriteLine("That is a correct guess");
+
+                        }
+
+                        else
+                        {
+                            Console.WriteLine("Sorry that guess was incorrect");
+                        }
 
 
+                Console.WriteLine(displayWord);
+            }
 
-
-
-
-
-
-
-
-
-
-
-            //for (int i = 0; i < currentWord.Length + 2; i--)
+            //    if (!correctLetter)
             //{
+
+            //}
+            //
+            //if (lives <= 0)
+            //    Console.WriteLine("End of game");
+
+
+
+
+
+            //loops forever
 
 
             //    for (int j = 0; j < currentWord.Length; j++)
             //    {
-            //        if (userLetter == currentWord[j])
+            //        if (letterGuessed == currentWord[j])
+            //            displayWord[j] = letterGuessed;     //if the guess is correct, set the character for the final output
+            //        Console.WriteLine("That guess is correct!")
+            //            else
             //        {
-            //            Console.WriteLine(displayWord);
-            //        }
-            //        else
-            //        {
-            //            Console.WriteLine("sorry that guess was incorrect");
+            //            Console.WriteLine("Sorry that guess was incorrect");
             //        }
             //    }
-            //}
-            //while (true)   //loops forever
-            //{
 
-            //    for (int k = 0; k < currentWord.Length; k++)
-            //    {
-            //        if (userLetter == currentWord[k])
-            //            displayWord[k] = userLetter;     //if the guess is correct, set the character for the final output
-            //        Console.WriteLine("That guess is correct!");
-            //    }
+            //Console.WriteLine(displayWord);
 
-            //    Console.WriteLine(displayWord);
-            //}
 
 
 
@@ -124,6 +139,11 @@ namespace hangman_list
 
             //    Console.WriteLine(displayWord);
             //}
+
+
+
+
         }
+
     }
 }
