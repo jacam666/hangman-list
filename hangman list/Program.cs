@@ -17,7 +17,7 @@ namespace hangman_list
             wordsList.Add("football");
             wordsList.Add("england");
             wordsList.Add("bitcoin");
-            wordsList.Add("bodybuilding");"that is a correc"
+            wordsList.Add("bodybuilding");
             wordsList.Add("cameron");
 
             Console.WriteLine("\t\t\t Welcome to my Hangman game, Good luck!");
