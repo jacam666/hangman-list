@@ -17,7 +17,7 @@ namespace hangman_list
             wordsList.Add("football");
             wordsList.Add("england");
             wordsList.Add("bitcoin");
-            wordsList.Add("bodybuilding");"that is a correc"
+            wordsList.Add("bodybuilding");
             wordsList.Add("cameron");
 
             Console.WriteLine("\t\t\t Welcome to my Hangman game, Good luck!");
@@ -31,11 +31,11 @@ namespace hangman_list
 
             char[] displayWord = new char[currentWord.Length];
             int lives = currentWord.Length + 2;
-
+            int number = 0;
+            
             Console.WriteLine("guess for a {0} letter word", currentWord.Length);
             Console.WriteLine("you have {0} lives", lives);
-            bool correctLetter = true;
-
+            
             // moved this code from the while loop so it doesnt repeat itself
             for (int i = 0; i < currentWord.Length; i++)
             { //hides my word
@@ -43,25 +43,66 @@ namespace hangman_list
             }
             while (lives > 0) // while lives are more than 0, the code in these brackets will execute
             {
+                number = 0;
                 Console.WriteLine(" Guess a letter");
                 Console.WriteLine(displayWord); // displays my hidden word.
                 char letterGuessed = char.Parse(Console.ReadLine());// checks to see if letter is in the array.
                 for (int i = 0; i < currentWord.Length; i++)
                 {
                     if (letterGuessed == currentWord[i])
-                        if (correctLetter)
-                        {
-                            //Console.WriteLine(displayWord[i]);
-                            displayWord[i] = letterGuessed;     //if the guess is correct, set the character for the final output
-                        }
-                        else
-                        {
-                            Console.WriteLine("Sorry that guess was incorrect");
-                        } 
+                    {
+                        number = number + 1;
+                        displayWord[i] = letterGuessed;
+                    }        
+                }
+                if (number >0)
+                {
+                    Console.WriteLine("This is an amazing guess ITS COOOOREEEECT!");
+                }
+                else
+                {
+                    Console.WriteLine("That is the worst guess ever");
+                }
+                Console.WriteLine(displayWord);
+                lives = lives - 1;
+            }Console.WriteLine("You are now out of lives!");
 
-                }Console.WriteLine("That is a correct guess");
-                Console.WriteLine(displayWord);                       
-            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                //{
+                //    if (letterGuessed == currentWord[i])
+                //    {
+                //        if (correctLetter)
+                //        {
+                //            //Console.WriteLine(displayWord[i]);
+                //            displayWord[i] = letterGuessed;     //if the guess is correct, set the character for the final output
+                //        }
+                //        else
+                //        {
+                //            Console.WriteLine("Sorry that guess was incorrect");
+                //        }
+                //    }
+                //}Console.WriteLine("That is a correct guess");
+
+
+
+
+
+
+
 
 
         }
