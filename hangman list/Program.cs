@@ -40,11 +40,8 @@ namespace hangman_list
             Console.WriteLine("guess for a {0} letter word", currentWord.Length);
             Console.WriteLine("you have {0} lives", lives);
 
-            // moved this code from the while loop so it doesnt repeat itself
-            for (int i = 0; i < currentWord.Length; i++)  //resets the displayword variable to all **** s
-            {
-                displayWord[i] = '*';
-            }
+            displayWord = GenerateStarCharArray(currentWord.Length);
+
 
             while (lives > 0)  // while lives are more than 0, the code in these brackets will execute
             {
@@ -81,6 +78,18 @@ namespace hangman_list
 
 
 
+        }
+
+        static char[] GenerateStarCharArray(int numberOfStars)
+        {
+            char[] fullOfStars = new char[numberOfStars];
+
+            for (int i = 0; i < numberOfStars; i++)  
+            {
+                fullOfStars[i] = '*';
+            }
+
+            return fullOfStars;
         }
     }
 }
