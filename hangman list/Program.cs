@@ -11,7 +11,7 @@ namespace hangman_list
     {
         static void Main(string[] args)
         {
-            List<string> wordsList = new List<string>();
+            List<string> wordsList = new List<string>();  //implement a GetRandomWord Method instead of all this
 
             wordsList.Add("hello");
             wordsList.Add("football");
@@ -52,7 +52,7 @@ namespace hangman_list
 
                 for (int i = 0; i < currentWord.Length; i++) // checks to see if letter is in the array. 
                 {                                            // and if it's contained also replaces the letter in displayword and also increses number +1
-                    if (letterGuessed == currentWord[i])
+                    if (letterGuessed == currentWord[i])    //***********implement a DoLetterCheck method************
                     {
                         number = number + 1;
                         displayWord[i] = letterGuessed;
