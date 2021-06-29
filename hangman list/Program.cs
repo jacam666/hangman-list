@@ -59,14 +59,7 @@ namespace hangman_list
                     }
                 }
 
-                if (number > 0) //depeding on nubmer value , inform user if guess is correct
-                {
-                    Console.WriteLine("This is an amazing guess ITS COOOOREEEECT!");
-                }
-                else
-                {
-                    Console.WriteLine("That is the worst guess ever");
-                }
+                DisplayRoundFeedback(number);
 
                 Console.WriteLine(displayWord); // displays my hidden word.
                 lives = lives - 1;
@@ -78,6 +71,18 @@ namespace hangman_list
 
 
 
+        }
+
+        private static void DisplayRoundFeedback(int number)
+        {
+            if (number > 0) //depeding on nubmer value , inform user if guess is correct
+            {
+                Console.WriteLine("This is an amazing guess ITS COOOOREEEECT!");
+            }
+            else
+            {
+                Console.WriteLine("That is the worst guess ever");
+            }
         }
 
         static char[] GenerateStarCharArray(int numberOfStars)
