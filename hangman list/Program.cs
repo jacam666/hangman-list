@@ -35,7 +35,7 @@ namespace hangman_list
 
             char[] displayWord = new char[currentWord.Length];
             int lives = currentWord.Length + 2;
-            int number = 0;
+            bool correctGuess = false;
 
             Console.WriteLine("guess for a {0} letter word", currentWord.Length);
             Console.WriteLine("you have {0} lives", lives);
@@ -45,7 +45,7 @@ namespace hangman_list
 
             while (lives > 0)  // while lives are more than 0, the code in these brackets will execute
             {
-                number = 0;
+                correctGuess = false;
                 Console.WriteLine(" Guess a letter");
                 Console.WriteLine(displayWord); // displays my hidden word.
                 char letterGuessed = char.Parse(Console.ReadLine());
@@ -54,12 +54,12 @@ namespace hangman_list
                 {                                            // and if it's contained also replaces the letter in displayword and also increses number +1
                     if (letterGuessed == currentWord[i])    //***********implement a DoLetterCheck method************
                     {
-                        number = number + 1;
+                        correctGuess = true;
                         displayWord[i] = letterGuessed;
                     }
                 }
 
-                DisplayRoundFeedback(number);
+                DisplayRoundFeedback(correctGuess);
 
                 Console.WriteLine(displayWord); // displays my hidden word.
                 lives = lives - 1;
@@ -73,9 +73,9 @@ namespace hangman_list
 
         }
 
-        private static void DisplayRoundFeedback(int number)
+        private static void DisplayRoundFeedback(bool correstGuess)
         {
-            if (number > 0) //depeding on nubmer value , inform user if guess is correct
+            if (correstGuess) //depeding on nubmer value , inform user if guess is correct
             {
                 Console.WriteLine("This is an amazing guess ITS COOOOREEEECT!");
             }
