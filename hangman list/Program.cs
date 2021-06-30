@@ -11,22 +11,10 @@ namespace hangman_list
     {
         static void Main(string[] args)
         {
-            List<string> wordsList = new List<string>();  //implement a GetRandomWord Method instead of all this
-
-            wordsList.Add("hello");
-            wordsList.Add("football");
-            wordsList.Add("england");
-            wordsList.Add("bitcoin");
-            wordsList.Add("bodybuilding");
-            wordsList.Add("cameron");
+            List<string> wordsList = randomWordSelect();
 
             Console.WriteLine("\t\t\t Welcome to my Hangman game, Good luck!");
 
-            //gets user birthdate year
-            //checks if user is >18
-            //does wha
-
-            //activating my random word
             Random rng = new Random();
 
             int rndWordIndex = rng.Next(0, wordsList.Count);   //warning! magic number ?!?!
@@ -36,12 +24,7 @@ namespace hangman_list
             char[] displayWord = new char[currentWord.Length];
             int lives = currentWord.Length + 2;
             bool correctGuess = false;
-
-            Console.WriteLine("guess for a {0} letter word", currentWord.Length);
-            Console.WriteLine("you have {0} lives", lives);
-
-            displayWord = GenerateStarCharArray(currentWord.Length);
-
+            displayWord = guessesLives(currentWord, lives);
 
             while (lives > 0)  // while lives are more than 0, the code in these brackets will execute
             {
@@ -69,8 +52,28 @@ namespace hangman_list
 
             Console.WriteLine("\t\t\t Welcome to my Hangman game, Good luck!");
 
+            static List<string> randomWordSelect()
+            {
+                List<string> wordsList = new List<string>();  //implement a GetRandomWord Method instead of all this
 
+                wordsList.Add("hello");
+                wordsList.Add("football");
+                wordsList.Add("england");
+                wordsList.Add("bitcoin");
+                wordsList.Add("bodybuilding");
+                wordsList.Add("cameron");
+                return wordsList;
+            }
 
+            static char[] guessesLives(char[] currentWord, int lives)
+            {
+                char[] displayWord;
+                Console.WriteLine("guess for a {0} letter word", currentWord.Length);
+                Console.WriteLine("you have {0} lives", lives);
+
+                displayWord = GenerateStarCharArray(currentWord.Length);
+                return displayWord;
+            }
         }
 
         private static void DisplayRoundFeedback(bool correstGuess)
